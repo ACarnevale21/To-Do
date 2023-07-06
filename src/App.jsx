@@ -14,6 +14,11 @@ function App() {
     updatedTodos.splice(index, 1);
     setTodos(updatedTodos);
   };
+  const handleEditTodo = (index, editValue) => {
+    const editedTodos = [...todos];
+    editedTodos.splice(index, 1, editValue);
+    setTodos(editedTodos);
+  };
 
   return (
     <>
@@ -22,7 +27,11 @@ function App() {
           TO DO LIST
         </h1>
         <InputTask addTodo={handleAddTodo} />
-        <ContainerTask todos={todos} deleteTodo={handleDeleteTodo} />
+        <ContainerTask
+          todos={todos}
+          deleteTodo={handleDeleteTodo}
+          editTodo={handleEditTodo}
+        />
       </div>
     </>
   );
